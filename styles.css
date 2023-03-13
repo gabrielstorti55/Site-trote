@@ -1,0 +1,156 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /*variavel para cor do texo inicial*/
+    --text-color: white;
+    /*variavel para fundo da pagina*/
+    --back-url: url(./assets/bg-mobile.jpg);
+    /*variavel para a borda dos links do fundo preto*/
+    --stroke-color: rgba(255, 255, 255, 0.5);
+    /*variavel da superficiel do link do fundo preto*/
+    --surface-color: rgba(255, 255, 255, 0.05);
+    /*variavel do mouse na superficie do link fundo preto*/
+    --surface-color-houver: rgba(0, 0, 0, 0.02);
+    --highlight-color: rgba(255, 255, 255, 0.2);
+    /* define a imagem do switch*/
+    --swittch-bg-url: url(./assets/moon-stars.svg);
+}
+
+.light {
+    /*variavel para cor do texo */
+    --text-color: black;
+    --back-url: url(./assets/bg-mobile-light.jpg);
+    --stroke-color: rgba(0, 0, 0, 0.5);
+    /*variavel da superficie do fundo branco*/
+    --surface-color: rgba(0, 0, 0, 0.05);
+    /*variavel do mouse na superficie do link fundo branco*/
+    --surface-color-houver: rgba(0, 0, 0, 0.02);
+    /*variavel q muda evidencia da cor de fundo da redes*/
+    --highlight-color: rgba(255, 255, 255, 0.1);
+    --swittch-bg-url: url(./assets/sun.svg);
+}
+
+body {
+    background: var(--back-url);
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: cover;
+}
+
+body * {
+    font-family: 'Inter', sans-serif;
+    color: var(--text-color);
+}
+
+#container {
+    width: 360px;
+    height: 712px;
+    margin: 56px auto 0px;
+    text-align: center;
+    padding: 0 24px; /* 0 é top e bottom e 24px é right e left */
+}
+
+#profile img {
+    width: 112px;
+}
+
+#profile p {
+    font-weight: 500px;
+    line-height: 24px;
+}
+
+ul{
+    list-style: none;
+    display: flex;
+    flex-direction: column; /* flexibilidade na coluna */
+    gap: 16px; /* espaço entre cada item da lista */
+    padding: 24px 0px;
+}
+
+ul li a{
+    display: flex;
+    align-items: center; /*alinhamemto na vertical*/
+    justify-content: center; /*na horizontal*/
+    padding: 16px 24px; /* 16px é top e bottom e 24px é right e left */
+
+    background: var(--surface-color); 
+    border: 1px solid var(--stroke-color); 
+    border-radius: 8px; /* borda aredondada*/
+    backdrop-filter: blur(4px);
+     /* nem todo navegador aceita o blur */
+    text-decoration: none;
+    font-weight: 500;
+    transition: background 0.2s;
+}
+
+ul li a:hover{
+    background: var(--surface-color-houver); /* muda o fundo quando passa o mouse */
+    border: 1px solid var(--text-color); /* muda a borda quando passa o mouse */
+
+}
+
+#social-links {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    padding: 24px 0px; /*24 top e botton e 0 left e right */
+    font-size: 24px;
+}
+
+#social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    border-radius: 50%;
+    transition: background 0.2s;
+}
+
+#social-links a:hover{
+    background: var(--highlight-color);
+    
+}
+
+footer {
+    padding: 24px 0px;
+    text-align: center;
+    font-size: 12px;
+}
+
+#switch {
+    position: relative;
+    width: 64px;
+    margin: 4px auto;
+}
+
+#switch button {
+    width: 32px;
+    height: 32px;
+    background: white var(--swittch-bg-url) no-repeat center;
+    border: 0px;
+    border-radius: 50%;
+
+    position: absolute;
+    top: 50%;
+    left: 0;
+    z-index: 1; /* colocamos o button em uma camada a cima*/
+    transform: translateY(-50%);/* deslocando eixo Y de-50*/
+}
+
+.light #switch button {
+    right: 0;
+    left: initial;
+}
+
+#switch span {
+    border: 1px solid var(--stroke-color);
+    display: block;/*troca inline para block*/
+    width: 64px;
+    height: 24px;
+    background: var(--surface-color);
+    border-radius: 9999px;
+}
